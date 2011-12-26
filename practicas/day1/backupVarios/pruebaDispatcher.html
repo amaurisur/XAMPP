@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- <style>img{ height: 800px; float: right; }</style>-->
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+TND-MDQ-NQN
+</head>
+<body>
+
+  <div id="cuerpo">
+        ---->>> 
+  </div>
+
+<script>
+
+alert('antes');
+
+//$.getJSON("dispatcherEcho.php", procesar);
+
+
+function procesar(data) {
+
+	$(document).ready($("#cuerpo").append(data));
+	//alert(data);
+
+  };
+
+alert('medio');
+
+/*$.post('dispatcher.php', ,function(data) {
+  $("#cuerpo").append("Hola Mundo: " + data)
+  //procesar(data);
+});
+*/
+//$.post('dispatcher.php', {service: welcome.hello, name:"oooooo"}, function(data){ $('#cuerpo').append(data);});
+
+//$.post("api/dispatcher.php", {"service": "welcome.hello","name":$('#alias').val()}, function(data){ $('#cuerpo').html(data);});
+
+$.ajax({
+    url: 'dispatcher.php',
+    type: 'POST',
+    data: 'service=welcome.hello&name=MAURY', // or $('#myform').serializeArray()
+    success: function() { alert('PUT completed'); }
+});
+
+alert('despues');
+</script>
+
+</body>
+</html>
+
+

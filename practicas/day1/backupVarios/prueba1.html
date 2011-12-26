@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>img{ height: 800px; float: right; }</style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+TND-MDQ-NQN
+</head>
+<body>
+
+  <div id="cuerpo">
+        ---->>> 
+  </div>
+
+<script language="javascript" type="text/javascript">
+
+alert('antes');
+
+//$.getJSON("dispatcherEcho.php", procesar);
+
+$.post("api/dispatcher.php", {"service": "welcome.hello","name": "XXXXX"}, function(data){ $('#cuerpo').html(data);});
+
+alert('medio');
+
+function procesar(data) {
+
+	$(document).ready($("#cuerpo").append(data));
+	//alert(data);
+
+  };
+alert('despues');
+
+$.getJSON("http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php");
+//$.getJSON("dispatcherEcho.php", procesar);
+</script>
+
+</body>
+</html>
+

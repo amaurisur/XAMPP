@@ -1,0 +1,36 @@
+<html>
+
+<head>
+ <title>JavaScript Variables</title>
+ <script type="text/javascript">
+	var USER_NAME = window.prompt("Ingrese su Nombre", "");	
+ </script>
+</head>
+
+<body>
+
+<form>
+
+	 <input type="button" value="Paul"
+	   onclick="alert('Paul');"/>
+	 <br/><br/>
+	 <input type="button" value="John"
+	   onclick="alert('John');"/>
+	 <br/><br/>
+	 <input type="button" value="George"
+	   onclick="alert('George');"/>
+	 <br/><br/>
+	 <input type="button" value="Ringo"
+	   onclick="alert('Ringo');"/>
+	 <br/><br/>
+	 <input type="button" id="buttonToChange" onclick="alert(USER_NAME);" >
+			<script type="text/javascript">document.getElementById("buttonToChange").value=USER_NAME;</script>
+	 </input>
+	  
+ 	 	
+</form>
+</body>
+</html>
+
+
+

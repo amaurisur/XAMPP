@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<body>
+  
+
+  
+<script>
+function procesar(data) {
+
+	$(document).ready($("#cuerpo").append(data));
+	//alert(data);
+
+  };
+	jQuery.getJSON("http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php?service=movieTo", procesar );
+
+</script>
+
+</body>
+</html>
+

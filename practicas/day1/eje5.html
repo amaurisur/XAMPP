@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+TND-MDQ-NQN
+</head>
+<body>
+
+  <div id="cuerpo">
+        ---->>> 
+  </div>
+
+<script>
+
+alert('antes');
+
+$.getJSON("dispatcherEcho.php", procesar);
+
+//$.post("api/dispatcher.php", {"service": "welcome.hello","name": "XXXXX"}, function(data){ $('#cuerpo').html(data);}));
+
+alert('medio');
+
+function procesar(data) {
+
+	$(document).ready($("#cuerpo").append(data));
+	//alert(data);
+
+  };
+alert('despues');
+</script>
+
+</body>
+</html>
+
+
+<!--
+$(document).ready(function(){
+//código a ejecutar cuando el DOM está listo para recibir instrucciones.
+});-->
