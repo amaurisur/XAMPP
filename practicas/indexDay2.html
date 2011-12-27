@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<title>BootCamp Practica Dia 1</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+	</head>
+<body>
+<div data-role="page" id="Page">	
+		<div data-role="header">
+			<h1>Welcome to BootCamp</h1>
+		</div><!-- /header -->
+
+		Mensaje:
+		<div data-role="content" id="mainPage">
+			<input id="Entrada" />			
+			<a href="#" id="buttonRequest" data-role="button" data-icon="star" data-theme="b">
+				Enviar Request
+			</a>
+			<div data-role="content" id="cuerpo" align="center"> Response: &raquo;&raquo; </div>
+			<p>I'm first in the source order so I'm shown as the page.</p>		
+			<p>View internal page called <a href="#secondPage">Second Page</a></p>	
+		</div>
+	<script>
+		$(document).ready(function () {
+						alert("Pagina cargada");
+						$('#Entrada').focus();
+		
+		$('#buttonRequest').click(function(){
+						$.mobile.showPageLoadingMsg();
+						$(document).bind('keydown', function (e) {
+							var key = e.keyCode;
+							if (key == '27') {
+								//alert("Entro en if keypress");								
+								$.mobile.hidePageLoadingMsg();
+							}else{
+								//alert("Entro el else de keypress");							
+							}});
+							$.post("day1/api/dispatcher.php", 
+								{ service: 'welcome.hello', params: { name:$('#Entrada').val()} }, 
+								function(data,status){ 
+									if (status=='success'){
+										$('#cuerpo').html(data);
+									   }else{
+										$('#cuerpo').css({'background-color':'red'});
+										$('#cuerpo').append("Error response del Server" + data);}
+										//alert("Entro !");
+										}/*fin function*/
+								);/*fin post*/							
+						});/*click y function*/
+		});
+	</script>
+
+		<div data-role="footer">
+			<h4>End BootCamp,<a href="day2/dialogPage.html" data-rel="dialog"> Sugerencias</a> </h4>
+		</div><!-- /footer -->
+</div>
+
+<!-- Start of second page -->
+<div data-role="page" id="secondPage">
+	<div data-role="header">
+		<h1>Second Page</h1>
+	</div><!-- /header -->
+
+	<div class='ui-bar'>
+				<div id='buttons' style='position:relative; text-align:center;;'>
+					<a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/" data-role="button" data-transition="pop">Page 1</a>
+					<a href="http://phrogz.net/js/classes/OOPinJS.html" data-role="button" data-transition="slide">Page 2</a>
+					<a href="http://phrogz.net/js/classes/OOPinJS2.html" data-role="button" data-transition="fade">Page 3</a>
+				</div> <!-- Buttons -->
+		<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is beeing clicked.</p>		
+		<p><a href="#Page">Back to main Page</a></p>	
+	</div> <!-- Bar -->
+	
+	<div data-role="footer"> 
+		<h4>Second Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
