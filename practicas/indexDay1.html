@@ -14,8 +14,6 @@
 				alert("Pagina cargada");
 				$('#Entrada').focus();
 				$('#buttonRequest').click(function(){
-							//$.mobile.showPageLoadingMsg();
-							//$.getJSON("dispatcherEcho.php", procesar);
 							$.post("day1/api/dispatcher.php", 
 								{ service: 'welcome.hello', params: { name:$('#Entrada').val()} }, 
 								function(data,status){ 
