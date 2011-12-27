@@ -5,47 +5,30 @@
 		<title>BootCamp Practica Dia 1</title>
 	</head>
 	<body>
-				
 			Mensaje:
-			<!--<form aling="center">-->
 				<input id="Entrada" />
 				<button id="buttonRequest">Enviar</button>
-			<!--</form>-->	
-		<div id="cuerpo" align="center">Response: -> </div>
+		<div id="cuerpo" align="center">Response:  -&gt; </div>
 		<script>
-
-			alert('antes');
-
-			$('#Entrada').focus();
-			$(document).ready(alert("'Pagina cargada'"));
-			$('#buttonRequest').click(function(){
-
-						//$.getJSON("dispatcherEcho.php", procesar);
-						$.post("day1/api/dispatcher.php", 
-							{ service: 'welcome.hello', params: { name:$('#Entrada').val()} }, 
-							function(data,status){ 
-								if (status=='success'){
-									$('#cuerpo').html(data);
-								   }else{
-									$('#cuerpo').css({'background-color':'red'});
-									$('#cuerpo').append("Error response del Server" + data);}
-									alert("Entro !");}/*fin function*/
-							/*procesar(data,status)*/
-							);/*fin post*/
-			});
-
-			alert('medio');
-
-			function procesar(data,status) {
-
-				$(document).ready($("#cuerpo").append(data));
-				alert(status);
-
-			  };
-
-			alert('despues');
+			$(document).ready(function (){
+				alert("Pagina cargada");
+				$('#Entrada').focus();
+				$('#buttonRequest').click(function(){
+							//$.mobile.showPageLoadingMsg();
+							//$.getJSON("dispatcherEcho.php", procesar);
+							$.post("day1/api/dispatcher.php", 
+								{ service: 'welcome.hello', params: { name:$('#Entrada').val()} }, 
+								function(data,status){ 
+									if (status=='success'){
+										$('#cuerpo').html(data);
+									   }else{
+										$('#cuerpo').css({'background-color':'red'});
+										$('#cuerpo').append("Error response del Server" + data);
+										}
+								alert("Entro !");
+								}/*fin function*/
+								);/*fin post*/
+				})});/*fin document ready*/
 		</script>
-
 	</body>
-
 </html>
