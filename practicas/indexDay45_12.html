@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Day 4 &amp; 5</title>
+	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="day45/movie.js"></SCRIPT>
+	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="day45/UsuarioWatching.js"></SCRIPT>
+    </head>
+    <body>
+        
+	<div>write content</div>
+	Cuerpo
+	<script>
+		alert("Body empezo");
+		var notebook = new Movie("notebook",5,1);
+		var juan = new watchMoves("juan");
+		var pepe = new watchMoves("pepe");
+		notebook.suscribir(juan);
+		notebook.suscribir(pepe);
+		notebook.play();
+		notebook.stop();
+		alert("Body termino");
+		
+		dwnMovie.prototype = new Movie("Terminator",3,2);
+		dwnMovie.prototype.constructor = dwnMovie;
+		function dwnMovie (){
+			this.down="yes";		
+		}
+		
+		dwnMovie.prototype.download = function(){
+							return ("downloaded");
+						}
+		var downloadableMovie = new dwnMovie();
+		alert(downloadableMovie.getTitle() + " " + downloadableMovie.download());
+	</script>
+
+    </body>
+</html>
