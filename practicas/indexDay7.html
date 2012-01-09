@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+	    	<title>Day7 Mustache y LinkIn API JavaScript</title>
+	
+		<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+		  api_key: 3P8PcvglVif_SZFx3Ivqzba_0ru6Sd63Jr4f1ocV3nx6--ut2Sma2G8KRZe_TOSE 
+		  onLoad: configurarEnCarga
+		  authorize: true
+		</script>
+		<script src="https://raw.github.com/janl/mustache.js/master/mustache.js"></script>
+		<script type="template" id="templateLinkIn">
+		      <h2> 
+			 <p> Nombre: {{ firstName }} </p> 
+			 <p> Apellido: {{ lastName }} </p>
+			  Lugar de Estudio: <strong>{{ headline }}</strong>
+		      </h2>
+		</script>
+		<script type="text/javascript">
+		  // Es ejecutado cuando se carga el framework para pedir autorizacion
+		  function configurarEnCarga() {
+		    IN.Event.on(IN, "auth", onLinkedInAuth);
+		  }
+
+		  // Una vez autenticado pedir el perfil del mismo
+		  function onLinkedInAuth() {
+		    IN.API.Profile("me").result(displayProfiles);
+		  }
+
+		  // Si se obtuvo el perfil satisfactoriamente paso a mostrarlo
+		  function displayProfiles(profiles) {
+		    member = profiles.values[0];
+		    console.log(member);
+		    templateLinkIn = document.getElementById("templateLinkIn").innerHTML;
+		    document.getElementById("viewProfiles").innerHTML += Mustache.to_html(templateLinkIn, member);
+		  	// "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
+		  }
+		</script>
+	</head>
+	<body>
+		<!-- Mostrar boton de linkin para autenticar, permitiendo el login del perfil que visualizo -->
+		<script type="IN/Login"></script>
+
+		<!-- Espacio para mostrar el perfil -->
+		<div id="viewProfiles"></div>
+	    
+	</body>
+</html>
+
+</body>
+</html>
