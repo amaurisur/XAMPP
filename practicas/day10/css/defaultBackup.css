@@ -1,0 +1,103 @@
+@media screen and (min-device-width: 1200px) {
+ .imgConf{
+	width: 15%;
+	}
+
+}
+@media screen and (max-device-width: 800px) {
+ .imgNone {
+		display:none;
+	}
+}
+html body{
+	background-color: #FFFF99;
+	background-size: 20px 20px;
+}
+
+header.topHeader h1{
+	font-size: 50px;
+	color: #006;
+}
+nav ul {
+	list-style: none;
+	padding: 0px;
+	display: block;
+	clear: right;
+	background-color: #99f;
+	padding-left: 4px;
+	height: 24px;
+}
+nav ul li {
+	display: inline;
+	padding: 0px 50px 5px 50px;
+	height: 24px;
+	border-left: 3px solid #ccc;
+}
+
+nav ul li a {
+	color: #006;
+	text-decoration: none;
+	font-size: 17px;
+	font-weight: normal;
+}
+
+nav ul li a:hover {
+	color: #fff;
+}
+div.articleOrder
+{
+  margin: 2px;
+  border: 1px solid #0000ff;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: left;
+}	
+div.articleOrder article
+{
+  width: auto;
+  display: inline-table; /*blcok, -moz-groupbox; */
+  margin: 3px;
+  border: 1px solid #ffffff;
+  padding:10px;
+
+}
+.hiOne{
+	background-color: blue;
+}
+.hiTwo{
+	background-color: yellow;
+}
+.hiThree{
+	background-color: red;
+}
+[class^="hi"]{
+	background-color: yellow;
+}
+[class$="One"]{
+	background-color: red;
+}
+[class^="linkPost"] {
+	color: green;
+}
+aside {  
+        position:fixed;
+	width: 200px;
+	top: 6%;
+	right: 0%;
+    	float: right;
+	font-style: italic; 
+       	color: #99f;
+	transform: rotate(90deg);
+	-ms-transform: rotate(90deg); /* IE 9 */
+	-webkit-transform: rotate(90deg); /* Safari and Chrome */
+	-o-transform: rotate(90deg); /* Opera */
+	-moz-transform: rotate(90deg); /* Firefox */
+}
+[class="article"]{
+text-shadow: 5px 5px 5px #FF0000;
+}
+div.configScreen p video {
+			height: 200px;
+			margin-left: 180px;
+}
